@@ -14,13 +14,16 @@ func set_message(msg):
 	$Control/RichTextLabel.text = msg
 
 func _on_play_again_pressed():
+	print("asdf")
 	# Delete original board
 	var root = get_tree().get_root().get_node("/root/Root")
 	var old_board = get_parent()
 	old_board.queue_free()
-		
+	
+	# Create new board
 	var new_board = board_scene.instance()
 	root.add_child(new_board)
 	
-	get_tree().get_root().print_tree()
+	# Close popup and unpause tree
+	get_tree().paused = false
 	queue_free()

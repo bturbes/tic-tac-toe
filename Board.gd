@@ -80,8 +80,11 @@ func win(player):
 		
 func game_over_dialog(msg):
 	print(msg)
+	
+	get_tree().paused = true
+	
 	var game_over = game_over_scene.instance()
 	game_over.set_message(msg)
-	game_over.z_index = 10
-	
+	game_over.z_index = 10	
+
 	add_child(game_over)
